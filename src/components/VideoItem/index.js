@@ -17,7 +17,7 @@ class VideoItem extends Component {
       >
         <Grid item md={4} xs={12}>
           <iframe
-            width="420"
+            width="400"
             height="245"
             src={`https://www.youtube.com/embed/${video.link.slice (17, 28)}`}
             allowFullScreen
@@ -29,8 +29,7 @@ class VideoItem extends Component {
           <div key={video.id}>
             <Typography component="h2">{video.title}</Typography>
             <Typography component="h3">
-              Shared by :
-              {video.author}
+              Shared by :{video.author}
               <IconButton aria-label="vote-up">
                 <Icon>thumb_up</Icon>
               </IconButton>

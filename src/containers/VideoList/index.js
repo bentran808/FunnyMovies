@@ -2,40 +2,26 @@ import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core';
 import styles from './styles';
 import VideoItem from '../../components/VideoItem';
-
-const listVideo = [
-  {
-    id: 1,
-    title: 'Birds',
-    author: 'bentran808@gmail.com',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    link: 'https://youtu.be/vOXZkm9p_zY',
-  },
-  {
-    id: 2,
-    title: 'Natural',
-    author: 'bentran808@gmail.com',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    link: 'https://youtu.be/0I647GU3Jsc',
-  },
-  {
-    id: 3,
-    title: 'Bad Liar',
-    author: 'bentran808@gmail.com',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    link: 'https://youtu.be/uEDhGX-UTeI',
-  },
-];
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as videoActions from '../../actions/video';
+import PropTypes from 'prop-types';
 
 class ListVideo extends Component {
+  componentDidMount () {
+    const {videoActionsCreators} = this.props;
+    const {fetchListVideoRequest} = videoActionsCreators;
+    fetchListVideoRequest ();
+  }
+
   renderVideo () {
     let xhtml = null;
+    const {listVideo} = this.props;
+
     xhtml = (
       <div>
         {listVideo.map (video => {
-          return (
-            <VideoItem video={video}></VideoItem>
-          );
+          return <VideoItem video={video} />;
         })}
       </div>
     );
@@ -43,12 +29,34 @@ class ListVideo extends Component {
   }
 
   render () {
+    const {classes} = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         {this.renderVideo ()}
       </div>
     );
   }
 }
 
-export default withStyles (styles) (ListVideo);
+ListVideo.propTypes = {
+  classes: PropTypes.object,
+  videoActionsCreators: PropTypes.shape ({
+    fetchListVideoRequest: PropTypes.func,
+  }),
+  listVideo: PropTypes.array,
+};
+
+const mapStateToProps = state => {
+  return {
+    listVideo: state.video.listVideo,
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    videoActionsCreators: bindActionCreators (videoActions, dispatch),
+  };
+};
+
+export default withStyles (styles) (
+  connect (mapStateToProps, mapDispatchToProps) (ListVideo)
+);
