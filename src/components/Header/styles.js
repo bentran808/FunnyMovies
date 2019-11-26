@@ -7,6 +7,7 @@ const styles = theme => ({
   },
   title: {
     flexGrow: 1,
+    display: "flex",
   },
   list: {
     width: 250,

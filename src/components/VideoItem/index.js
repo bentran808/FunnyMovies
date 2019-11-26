@@ -27,22 +27,23 @@ class VideoItem extends Component {
         </Grid>
         <Grid item md={4} xs={12}>
           <div key={video.id}>
-            <Typography component="h2">{video.title}</Typography>
-            <Typography component="h3">
-              Shared by :{video.author}
+            <Typography variant="h5">{video.title}</Typography>
+            <Typography variant="h6">
+              Shared by: {video.author}
               <IconButton aria-label="vote-up">
                 <Icon>thumb_up</Icon>
               </IconButton>
               <IconButton aria-label="vote-down">
                 <Icon>thumb_down</Icon>
               </IconButton>
+              ({video.status})
             </Typography>
-            <Typography component="h3">
-              89<Icon fontSize="small">thumb_up</Icon>
-              12<Icon fontSize="small">thumb_down</Icon>
+            <Typography variant="p">
+              89 <Icon fontSize="small">thumb_up</Icon>
+              12 <Icon fontSize="small">thumb_down</Icon>
             </Typography>
-            <Typography component="h3">Description</Typography>
-            <Typography component="p">{video.description}</Typography>
+            <Typography variant="h6">Description</Typography>
+            <Typography variant="p">{video.description}</Typography>
           </div>
         </Grid>
       </Grid>

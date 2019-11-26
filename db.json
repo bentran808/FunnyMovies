@@ -5,21 +5,50 @@
       "title": "Birds",
       "author": "bentran808@gmail.com",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "link": "https://youtu.be/vOXZkm9p_zY"
+      "link": "https://youtu.be/vOXZkm9p_zY",
+      "status": "un-voted"
     },
     {
       "id": 2,
       "title": "Natural",
       "author": "bentran808@gmail.com",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "link": "https://youtu.be/0I647GU3Jsc"
+      "link": "https://youtu.be/0I647GU3Jsc",
+      "status": "un-voted"
     },
     {
       "id": 3,
       "title": "Bad Liar",
       "author": "bentran808@gmail.com",
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "link": "https://youtu.be/uEDhGX-UTeI"
+      "link": "https://youtu.be/uEDhGX-UTeI",
+      "status": "un-voted"
+    },
+    {
+      "link": "https://youtu.be/EzUtfm8xAeE",
+      "title": " Tình Yêu Không Cần Tiền",
+      "author": "unknown",
+      "description": "FapTV cơm nguội",
+      "id": 4,
+      "status": "un-voted"
+    },
+    {
+      "link": "https://youtu.be/V1alDePpnI8",
+      "title": "Tìm Kiếm Công Việc",
+      "author": "unknown",
+      "description": "redux-saga",
+      "id": 5,
+      "status": "un-voted"
     }
-  ]
+  ],
+
+  "users": [
+    {
+      "id": 1,
+      "email": "bentran@gmail.com",
+      "password": "123123"
+    }
+  ],
+
+  "currentUser": []
 }

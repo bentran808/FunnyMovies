@@ -10,8 +10,8 @@ import PropTypes from 'prop-types';
 class ListVideo extends Component {
   componentDidMount () {
     const {videoActionsCreators} = this.props;
-    const {fetchListVideoRequest} = videoActionsCreators;
-    fetchListVideoRequest ();
+    const {fetchListVideo} = videoActionsCreators;
+    fetchListVideo ();
   }
 
   renderVideo () {
@@ -41,7 +41,7 @@ class ListVideo extends Component {
 ListVideo.propTypes = {
   classes: PropTypes.object,
   videoActionsCreators: PropTypes.shape ({
-    fetchListVideoRequest: PropTypes.func,
+    fetchListVideo: PropTypes.func,
   }),
   listVideo: PropTypes.array,
 };

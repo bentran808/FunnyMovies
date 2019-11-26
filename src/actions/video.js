@@ -1,4 +1,3 @@
-import * as videoApis from '../apis/video';
 import * as videoConstants from '../constants/video';
 
 export const fetchListVideo = () => {
@@ -25,16 +24,31 @@ export const fetchListVideoFailed = error => {
   };
 };
 
-export const fetchListVideoRequest = () => {
-  return dispatch => {
-    videoApis
-      .fetchListVideo ()
-      .then (res => {
-        const {data} = res;
-        dispatch (fetchListVideoSuccess (data));
-      })
-      .catch (error => {
-        dispatch (fetchListVideoFailed (error));
-      });
+export const shareVideo = (link, title, description) => {
+  return {
+    type: videoConstants.SHARE_VIDEO,
+    payload: {
+      link,
+      title,
+      description,
+    },
+  };
+};
+
+export const shareVideoSuccess = data => {
+  return {
+    type: videoConstants.SHARE_VIDEO_SUCCESS,
+    payload: {
+      data,
+    },
+  };
+};
+
+export const shareVideoFailed = error => {
+  return {
+    type: videoConstants.SHARE_VIDEO_FAILED,
+    payload: {
+      error,
+    },
   };
 };
